@@ -1,0 +1,33 @@
+.signup-wrapper {
+	width: 500px;
+	margin: 30px auto 0 auto;
+}
+#iden_regist_button {
+	margin-top: 24px;
+}
+.field {
+	width: 500px;
+	margin: 20px auto;
+}
+#identification {
+	width: 100px;
+}
+.ui.form .field {
+    margin: 10px auto !important;
+}
+.ui.form .two.fields>.field, .ui.form .two.fields>.fields {
+    width: 500px;
+}
+.sure {
+	position: relative;
+}
+.get {
+	position: absolute;
+	top: 0px;
+	left: 105px;
+}
+#button_regist {
+    position: absolute;
+    top: 90px;
+    left: 200px;
+}

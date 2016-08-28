@@ -1,0 +1,78 @@
+ul, li {
+	list-style: none;
+	padding: 0 0;
+	margin: 0 0;
+}
+
+body.help-page {
+	background-color: #e9eff3;
+}
+
+.users-center {
+	background-color: white;
+	margin: 50px auto 0 auto;
+	width: 1000px;
+	border: 1px solid #e7e7e7;
+	overflow: hidden;
+}
+
+.users-center ul {
+	border-right: 1px solid #e7e7e7;
+	width: 200px;
+	float: left;
+	background-color: #fbfbfb;
+	padding-bottom: 1000px;
+	margin-bottom: -1000px;
+}
+
+.users-center li {
+	color: #666;
+	font-size: 18px;
+	height: 65px;
+	width: 100%;
+	cursor: pointer;
+	line-height: 66px;
+	border-bottom: 1px solid #e7e7e7;
+	border-left: 1px solid #e7e7e7;
+	text-indent: 10px;
+}
+
+.users-center li.active {
+	border-right: 0px;
+	background-color: white;
+	text-indent: 20px;
+	border-left: 4px solid #22c485;
+}
+
+.center-content {
+	padding: 0 10px 0 210px;
+}
+
+.answer {
+	color: #888;
+	text-indent: 20px;
+}
+
+.center-content p:not(.answer) {
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.logoimg {
+  width: 70px;
+  height: 60px;
+}
+
+.newuser {
+	padding-left: 20px;
+}
+
+table {
+	margin-left: 20px;
+	padding-left: -10px;
+}
+
+td {
+	width:100px;
+	border: 1px solid black;
+}

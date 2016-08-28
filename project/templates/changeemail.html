@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block header %}
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/changeInform.css")}}">
+{% end %}
+{% block content %}
+
+	<input type="hidden" value="{{id}}" id="id">
+	<div class="wrap">
+		<form class="form-horizontal" id="theEmail">
+			<div class="form-group">
+				<label for="newemail" id="theNewE" class="col-sm-4 control-label">新邮箱：</label>
+				<div class="col-sm-6" id="the-emailtip">
+					<input class="form-control" id="newemail" name="newemail">
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-6">
+					<button type="button" class="btn btn-primary" id="sendNewEmail">确定</button>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</form>
+	</div>
+{% end %}
+
+{% block footer %}
+	<script type="text/javascript" src="{{static_url("js/jquery.validate-1.13.1.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/changeemail.js")}}"></script>
+{% end %}

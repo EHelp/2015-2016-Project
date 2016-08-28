@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block header %}
+	<title>账户安全</title>
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/changeInform.css")}}">
+{% end %}
+{% block content %}
+	<input type="hidden" value="{{account}}" id="account">
+	<div class="col-sm-4 col-md-4"></div>
+	<div class="left col-sm-2 col-md-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">账户安全</div>
+			<div class="panel-body">
+				<table class="tabel tabel-hover"></table>
+				<ul>
+					<li class="handset">修改手机</li>
+					<li class="email">修改邮箱</li>
+					<li class="password">修改密码</li>
+				</ul>
+			</div>
+		</div>
+		<!--新增的隐藏id和是否已经验证了的 input-->
+		<input value="{{id}}" class="id" type="hidden"/>
+		<input value="{{isverified}}" class="is-verified" type="hidden"/>
+	</div>
+
+	<div class="right col-sm-6 col-md-6">
+		<div class="change-mobile panel panel-info">
+			<div class="panel-heading">修改手机</div>
+			<div class="panel-body">
+				<div class="mobile">
+					<img src="{{static_url("images/SecureImages/mobile.png")}}">
+				</div>
+				<div class="tips">
+					<p>当前手机号码</p>
+					<p>{{phone}}</p>
+				</div>
+				<div class="for-button">
+					<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#tip-for-mobile">修改手机号码</button>
+				</div>
+				<div class="modal fade" id="tip-for-mobile" tabindex="-1" aria-labelledby="theLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h2 class="modal-title" id="theLabel">身份验证</h2>
+							</div>
+							<div class="modal-body">
+								<p>为确保为本人操作，请输入当前用户密码</p>
+								<div class="input-group confirm-password">
+					               <input type="password" class="form-control form-now-password">
+					               <span class="input-group-btn">
+					                  <button id="sendPassword" class="btn btn-primary " type="button">
+					                     确认
+					                  </button>
+					               </span>
+					            </div>
+					            <p class="wrong-password">密码错误，请重新输入。</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="change-email panel panel-info">
+			<div class="panel-heading">修改邮箱</div>
+			<div class="panel-body">
+				<div class="email">
+					<img src="{{static_url("images/SecureImages/email.png")}}">
+				</div>
+				<div class="tips">
+					<p>当前邮箱地址</p>
+					{% if email %}
+					<p>{{email}}</p>
+					{% else %}
+					<p>您还没注册邮箱</p>
+					{% end %}
+				</div>
+				<div class="for-button">
+					<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#tip-for-email">修改邮箱</button>
+				</div>
+				<div class="modal fade" id="tip-for-email" tabindex="-1" aria-labelledby="theLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h2 class="modal-title" id="theLabel">身份验证</h2>
+							</div>
+							<div class="modal-body">
+								<p>为确保为本人操作，请输入当前用户密码</p>
+								<form class="form-horizontal">
+									<div class="form-group">
+										<div class="col-sm-2"></div>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="nowpasswordForEmail">
+										</div>
+										<div class="col-sm-2"></div>
+										<button type="button" class="btn btn-primary" id="sendPasswordForEmail">确认</button>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="change-password panel panel-info">
+			<div class="panel-heading">修改密码</div>
+			<div class="panel-body">
+				<form class="form-horizontal" id="changePassword">
+					<div class="form-group">
+						<label for="nowpassword" class="col-sm-3 control-label">当前密码：</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="nowpassword">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="newpassword" class="col-sm-3 control-label">新密码：</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="newpassword" name="newpassword">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="comfirmpassword" class="col-sm-3 control-label">确认密码：</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="comfirmpassword" name="comfirmpassword">
+						</div>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success btn-lg" id="button_mofify_password">保存</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-2 col-md-2"></div>
+{% end %}
+
+{% block footer %}
+	<script type="text/javascript" src="{{static_url("js/jquery.md5.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.validate-1.13.1.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/changeInform.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/changepassword.js")}}"></script>
+{% end %}

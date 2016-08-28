@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block header %}
+	<title>实名认证</title>
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/changeInform.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/real-name.css")}}">
+{% end %}
+{% block content %}
+	<div class="wrap">
+		<div class="col-sm-2 col-md-2"></div>
+		<div class="col-sm-8 col-md-8">
+			<div class="progress">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:33%;">提交申请</div>
+				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:33%;">资料审核</div>
+			</div>
+			<div class="col-sm-2 col-md-2"></div>
+			<div class="col-sm-8 col-md-8 submit-tip">
+				<img src="{{static_url("images/SecureImages/waiting.png")}}">
+				<p>资料正在审核，请耐心等待</p>
+			</div>
+			<div class="col-sm-2 col-md-2"></div>
+		</div>
+		<div class="col-sm-2 col-md-2"></div>
+	</div>
+{% end %}
+
+{% block footer %}
+{% end %}

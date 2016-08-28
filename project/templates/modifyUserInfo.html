@@ -1,0 +1,66 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>修改信息</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="{{static_url("bootstrap/css/bootstrap.css")}}">
+</head>
+
+<style type="text/css">
+	
+	body {
+		padding: 30px;
+	}
+</style>
+<body>
+		<form class="form-horizontal">
+
+			<div class="control-group">
+				<div class="control-label">
+					<label>用户名:</label>
+				</div>
+				<div class="controls">
+					<input type="text" id="account">
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="control-label">
+					<label>密 码:</label>
+				</div>
+				<div class="controls">
+					<input type="password" id="password">
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="control-label">
+					<label>修改后的密码: </label>
+				</div>
+				<div class="controls">
+					<input type="password" id="modifyPwd1">
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="control-label">
+					<label>再次确认修改后的密码: </label>
+				</div>
+				<div class="controls">
+					<input type="password" id="modifyPwd2">
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<button type="submit" id="button_mofify">确定</button>
+				</div>
+			</div>
+		</form>
+    
+    <script type="text/javascript" src="{{static_url("bootstrap/js/jquery-1.9.1.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("bootstrap/js/bootstrap.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.md5.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/modifyUserInfo.js")}}"></script>
+</body>
+</html>

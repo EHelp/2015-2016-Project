@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Microsoft YaHei', '微软雅黑', 'iberation Sans','Helvetica Neue', Helvetica,Arial,sans-serif;
+}
+.left a {
+  text-decoration: none;
+}
+.left ul li {
+  font-size: 120%;
+  list-style: none;
+  height: 10%;
+  text-align: center;
+  padding: 20%;
+  margin: 0 -15px;
+}
+.left ul li:hover {
+  background-color: #f0f0f0;
+}
+.btn {
+  display: block;
+  margin: 0 auto;
+}
+.change-password {
+
+}
+.panel-body {
+  text-align: center;
+}
+.change-mobile .tips {
+  text-align: center;
+  margin: 30px;
+}
+.modal-dialog {
+  text-align: center;
+}
+.change-mobile {
+
+}
+.wrap {
+  width:60%;
+  margin:10% auto;
+  font-size:20px;
+  text-align:center;
+}
+.wrap p {
+  margin:5%;
+}
+.left {
+  position: fixed;
+  left: 16%;
+  top: 92px;
+}
+.had-confirm {
+  color: #00B050;
+
+  /*判断是否实名前需要隐藏*/
+  display: none;
+}
+.hadnt-comfirm {
+  /*判断是否实名前需要隐藏*/
+  display: none;
+}
+.tips {
+  margin: 5%;
+  font-size: 20px;
+}
+#theNewE {
+  padding-top: 0;
+}
+#submitComID {
+  font-size: 16px;
+}
+#the-emailtip {
+  font-size: 16px;
+}
+
+.left input {
+  display: none;
+}
+.wrong-password {
+  font-size: 8px;
+  color: rgb(256, 0, 0);
+  display: none;
+}
+.id, .is-ver-password {
+  display: none;
+}

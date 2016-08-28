@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block header %}
+	<title>实名认证</title>
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/reputation.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/real-name.css")}}">
+{% end %}
+{% block content %}
+
+	<div class="main">
+		<div class="leftdiv">
+			<div class="lefthigh">
+				<p>我的爱心币</p>
+			</div>
+			<div class="perimg">
+				<!-- <img src="{{static_url("images/BankImages/图5.png")}}"> -->
+				<img src="{{static_url("images/head/" + avatar)}}" id="avatar">
+
+			</div>
+			<p class="word"><img src="{{static_url("images/icon/tusan.png")}}" class="icon_img"> 爱心币：<span>{{love_coin}}</span></p>
+		</div>
+
+		<div class="rightdiv1">
+			<p class="p1"> 如何得到爱心币?</p>
+			<div class="star">
+				<img src="{{static_url("images/icon/tuyi.png")}}">
+			</div>
+			<div class="para">
+				<p class="big">帮助他人</p>
+				<p>及时采取一定的行动去帮助求助者能得到相应的爱心币。</p>
+			</div>
+			<a href="/help" target="blank"><button type="button" class="more1">查看详情</button></a>
+		</div>
+	</div>
+
+{% end %}
+
+{% block footer %}
+{% end %}

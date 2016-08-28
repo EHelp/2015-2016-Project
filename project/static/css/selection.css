@@ -1,0 +1,40 @@
+body.selection-page {
+	background-color: #e9eff3;
+}
+
+.selection-wrapper {
+	width: 800px;
+	margin: 30px auto 0 auto;
+}
+
+.ui.ordered.steps {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.bottom-info {
+	position: absolute;
+	bottom: 0;
+}
+
+.select {
+	width: 500px;
+	margin: 0 auto;
+}
+
+.select a {
+	display: block;
+	border: 1px solid #e8e8e8; 
+	background-color: white;
+	margin-top: 20px;
+	padding: 20px 10px 20px 10px
+}
+
+.select a:hover {
+	border: 1px solid #4183c4;
+}
+
+.logoimg {
+  width: 70px;
+  height: 60px;
+}

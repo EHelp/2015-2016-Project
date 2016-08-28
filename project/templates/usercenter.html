@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html>
+<head>
+   <title>个人主界面</title>
+   <meta charset="utf-8">
+   <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="{{static_url("js/comment.script.js")}}"></script>
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+			<h1 class="text-center text-success">{{ userName }}个人主界面</h1>
+			<form>
+			    <input id ="from" type="hidden" value="{{ userId }}">
+			    <div class="form-group">
+			        <label for="title" class="col-sm-2 control-label">标题</label>
+			        <div class="col-sm-10">
+			            <input type="text" class="form-control" id="title" placeholder="请输入标题">
+			        </div>
+			    </div>
+			  <div class="form-group">
+			    <label for="name" class="text-primary">提问文本框</label>
+			    <textarea id="text" class="form-control" rows="3"></textarea>
+			  </div>
+			  <div class="form-group">
+		        <label for="coin" class="col-sm-2 control-label">爱心币</label>
+		        <div class="col-sm-2">
+		            <input type="text" class="form-control" id="coin">
+		        </div>
+		      </div>
+			</form>
+			<button id="comment_submit" class="ui button">Submit</button>  
+
+			<h2 class="text-danger">提问动态</h2>
+			<div id="question">
+				{% for eventItem in eventInfo %}
+				<div class="panel panel-success">
+				   <div class="panel-body">
+				        <h3 class="text-primary">{{ eventItem["launcher"] }}</h3>
+				        <p class="text-right">{{ eventItem["love_coin"] }}个爱心币</p>
+				        <p>{{ eventItem["title"] }} ---  {{ eventItem["time"] }}</p>
+				        <h5>{{ eventItem["content"] }}</h5>
+				   </div>
+				   <div class="panel-footer">
+				   		<span class="glyphicon glyphicon-send"> 提交关注 </span>
+				   		<span class="glyphicon glyphicon-comment"> 66条评论 </span>
+				   		<span class="text-info"> 0.3km</span>
+				   </div>
+				</div>
+				{% end %}
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

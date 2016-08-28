@@ -1,0 +1,23 @@
+body.manual-page {
+	background-color: #e9eff3;
+}
+
+.manual-wrapper {
+	width: 800px;
+	margin: 30px auto 0 auto;
+}
+
+.ui.ordered.steps {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.bottom-info {
+	position: absolute;
+	bottom: 0;
+}
+
+.logoimg {
+  width: 70px;
+  height: 60px;
+}
