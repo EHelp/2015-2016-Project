@@ -1,0 +1,309 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>个人主界面</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="icon" href="{{static_url("images/logo/e-help.png")}}">
+	<link rel="stylesheet" href="{{static_url("css/bootstrap.min.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/information.css")}}">
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=d94ab7fe96533809aa19eb8d2a962c9d"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/bootstrap.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/inform.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/Chart.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/comment.script.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/contextmenu.js")}}"></script>
+</head>
+<body>
+	<div class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a href="/account" class="navbar-brand"><img src="{{static_url("images/BankImages/logo.png")}}" class="logo logoimg"></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li id="index"><a href="/account"><img src="{{static_url("images/BankImages/Home.png")}}" class="navLogo">首页</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img src="{{static_url("images/BankImages/Heart.png")}}" class="navLogo">爱心银行<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">转账</a></li>
+                    <li><a href="#">收支记录</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><img src="{{static_url("images/BankImages/People.png")}}" class="navLogo">我的信誉</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{static_url("images/BankImages/user.png")}}" class="navLogo">个人中心<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">实名认证</a></li>
+                    <li><a href="#">个人信息</a></li>
+                    <li><a href="#">易助记录</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><img src="{{static_url("images/BankImages/Message.png")}}" class="message"></a></li>
+            <li class="dropdown leftfloat"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{static_url("images/BankImages/Settings.png")}}" class="message"><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li id="modify_user"><a href="/account/userinfo/modify">账号安全</a></li>
+                    <li><a href="/account/logout">退出登录</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+	<div class="wrap">
+		<div class="left">
+			<div class="function">
+				<div id="question"><a href="#"><img src="{{static_url("images/button/help1.png")}}"></a></div>
+				<div id="help"><a href="#"><img src="{{static_url("images/button/help2.png")}}"></a></div>
+				<div id="sos"><a href="#"><img src="{{static_url("images/button/help3.png")}}"></a></div>
+			</div>
+
+
+			<!--the question tab start-->
+			<div class="question">
+				<div class="message">
+					<form role="form">
+						<input type="hidden" id="user-name" value="{{userName}}">
+						<input type="hidden" id="user-id" value="{{userId}}">
+						<div class="form-group">
+							<input id="title" type="text" class="form-control" placeholder="请输入问题标题">
+							<textarea id="content" class="form-control" rows="7" placeholder="在这里提出你的问题..."></textarea>
+						</div>
+						<div class="operation">
+							<span>悬赏爱心币</span>
+							<div class="selectcoin">
+								<form role="form" class="height-control">
+  									<div class="form-group">
+    									<textarea class="form-control" rows="1" id="coinnum">3</textarea>
+  									</div>
+								</form>
+								<img src="{{static_url("images/icon/Tran.png")}}" alt="triangle" id="increaseone" onclick="coin('add');">
+								<img src="{{static_url("images/icon/carbet.png")}}" alt="carbet" id="decreaseone" onclick="coin('des');">
+								<!--无法使用<span class="glyphicon glyphicon-chevron-up"></span>显示那个上下的按钮，很奇怪-->
+							</div>
+							<button type="button" class="btn btn-info" id="comment_submit">发送</button>
+						</div>
+					</form>
+				</div>
+
+				<p class="space"><button type="button" class="btn btn-default" href="#" data-toggle="collapse" data-target=".inform">提问动态<span class="caret"></span></button></p>
+				<div class="inform collapse in">
+				    {% for item in disData["quesEvent"] %}
+					<div class="piece">
+					    <input type="hidden" class="event_id" value="{{ item["eventinfos"]["event_id"] }}">
+						<input type="hidden" class="launcher_id" value="{{ item["eventinfos"]["launcher_id"] }}">
+						<input type="hidden" class="cuser_id" value="{{userId}}">
+						<div class="header">
+							<a href=""><img src="static/images/head/{{ item["launcherinfos"]["launcher_profile"] }}"></a>
+							<p>
+								<span class="name">{{item["launcherinfos"]["launcher_nickname"]}}</span>
+								{% if item["launcherinfos"]["launcher_isverify"] == 1%}
+									<img class="if-cert" src="{{static_url("images/icon/have-cert.png")}}" />
+								{% else %}
+									<img class="if-cert" src="{{static_url("images/icon/havn-cert.png")}}" />
+								{% end %}
+								<span class="care"><button class="btn btn-default">+关注</button></span></span>
+								<span class="inform-coin">{{item["eventinfos"]["love_coin"]}} 个爱心币</span>
+							</p>
+							<p>
+								<span>{{ item["eventinfos"]["event_time"] }}</span>
+							</p>
+						</div>
+						<p class="text-info"><strong>标题:</strong>{{ item["eventinfos"]["event_title"] }}</p>
+						<p class="text">
+							{{item["eventinfos"]["event_content"]}}
+						</p>
+						<!--<p class="location"><img src="{{static_url("images/icon/location.png")}}"/>大学城至善园9号222室</p>-->
+						<div class="comment">
+							<div class="comment-label"><img src="{{static_url("images/button/comment.png")}}"> {{ item["comments_num"] }}条回复</div>
+							<div class="old-comment">
+								{% for sin in item["comments"] %}
+								<div class="comment-piece">
+									<a href=""><img src="static/images/head/{{ sin["comment_pic_src"] }}"></a>
+									<div class="comment-time">
+										<p>{{ sin["comment_author"] }}:</p>
+										<p>{{ sin["comment_time"]}}</p>
+									</div>
+									<div class="comment-text">
+										<p>{{ sin["comment_content"] }}</p>
+									</div>
+								</div>
+								{% end %}
+								<span class="more-comment"><a href=""><span class="caret"></span>更多评论</a></span>
+							</div>
+							<div class="input-group">
+				                <input type="text" class="form-control changewidth">
+				                <span class="input-group-btn closetoinput">
+				                    <button class="btn btn-info answer" type="button">
+				                     提交
+				                    </button>
+				                </span>
+				            </div>
+						</div>
+					</div>
+					{% end %}
+				</div>
+			</div>
+			<!--the question tab end-->
+
+			<div id="map"></div>
+			<div class="help">
+				<p class="space"><button type="button" class="btn btn-default" href="#" data-toggle="collapse" data-target=".inform">求助动态<span class="caret"></span></button></p>
+				<div class="inform collapse in">
+					<div class="piece">
+						<div class="header">
+							<a href=""><img src="{{static_url("images/head/yy.png")}}"></a>
+							<p>
+								<span class="name">yuyang</span>
+								<img class="if-cert" src="{{static_url("images/icon/have-cert.png")}}" />
+								<span class="care"><button class="btn btn-default">+关注</button></span>
+								<span class="if-help">求助进行中</span>
+								<span class="inform-coin">10 爱心币</span>
+							</p>
+							<p>
+								<span>2015-09-02 17:19</span> 
+							</p>
+						</div>
+						<p class="text">
+							我是来给大家发爱心币的~
+						</p>
+						<p class="location"><img src="{{static_url("images/icon/location.png")}}"/>大学城至善园9号222室</p>
+						<p class="bottom-inform">
+							<span class="how-much-care"><img src="{{static_url("images/icon/care.png")}}">2人关心</span>
+							<span class="how-much-action"><img src="{{static_url("images/navigation/bank.png")}}">0人响应</span>
+							<span class="go-to-help"><img src="{{static_url("images/icon/goto.png")}}">前往帮助</span>
+							<span class="distance">0.3km</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="sos">
+				<p class="space"><button type="button" class="btn btn-default" href="#" data-toggle="collapse" data-target=".inform">求救动态<span class="caret"></span></button></p>
+				<div class="inform collapse in">
+					<div class="piece">
+						<div class="header">
+							<a href=""><img src="{{static_url("images/head/yy.png")}}"></a>
+							<p>
+								<span class="name">yuyang</span>
+								<img class="if-cert" src="{{static_url("images/icon/have-cert.png")}}" />
+								<span class="care"><button class="btn btn-default">+关注</button></span>
+								<span class="if-sos">求救进行中</span>
+							</p>
+							<p>
+								<span>2015-09-02 17:19</span>
+							</p>
+						</div>
+						<p class="text">
+							健康问题
+						</p>
+						<p class="location"><img src="{{static_url("images/icon/location.png")}}"/>大学城至善园9号222室</p>
+						<p class="bottom-inform">
+							<span class="how-much-care"><img src="{{static_url("images/icon/care.png")}}">2人关心</span>
+							<span class="how-much-action"><img src="{{static_url("images/navigation/bank.png")}}">0人响应</span>
+							<span class="go-to-help"><img src="{{static_url("images/icon/goto.png")}}">前往帮助</span>
+							<span class="distance">0.3km</span>
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="right">
+			<div class="private">
+				<div class="labe">
+					<img class="img-circle" src="{{static_url("images/head/liyang.png")}}">
+					<p>帮客</p>
+				</div>
+				<div id="pri-p">
+					<div class="love-coin pri-infor">
+						<p class="num">100</p>
+						<p class="num-state">爱心币</p>
+					</div>
+					<div class="score pri-infor">
+						<p id="score-num" class="num">60</p>
+						<p class="num-state">积分</p>
+					</div>
+					<div class="believe pri-infor">
+						<p class="num">99.91</p>
+						<p class="num-state">信誉值</p>
+					</div>
+				</div>
+			</div>
+			<div class="daily">
+				<div id="date">
+					<p id="week">周三</p>
+					<p>09.02</p>
+				</div>
+				<div id="get-score">
+					<button class="btn btn-info" type="buttun">签到</button>
+				</div>
+				<div id="all-days">
+					<p id="days-num">123</p>
+					<p>Days</p>
+				</div>
+			</div>
+			<div class="contact">
+				<p class="contact-button">
+					<a href=""><img src="{{static_url("images/contact/img1.png")}}"></a>
+					<a href=""><img src="{{static_url("images/contact/img2.png")}}"></a>
+					<a href=""><img src="{{static_url("images/contact/img3.png")}}"></a>
+				</p>
+				<p class="contact-tabs"><button class="btn btn-default" data-toggle="collapse" data-target="#danger"><span class="caret"></span>紧急联系人 5人</button></p>
+
+				<div id="danger" class="collapse in">
+					<ul class="person">
+						<li class="person-li"><a href=""><img src="{{static_url("images/head/img3.png")}}" class="contact-head">爸爸</a></li>
+					</ul>
+				</div>
+				<div class="contact-tabs-menu" id="contact-tabs-persons">
+					<ul>
+						<li>修改备注名</li>
+						<li id="move">联系人移动至</li>
+						<li>删除联系人</li>
+					</ul>
+				</div>
+
+				<p class="contact-tabs">
+					<button class="btn btn-default"><span class="caret"></span>家人 20人</button>
+				</p>
+				<p class="contact-tabs">
+					<button class="btn btn-default"><span class="caret"></span>同学 30人</button>
+				</p>
+				<p class="contact-tabs">
+					<button class="btn btn-default"><span class="caret"></span>已关注 30人</button>
+				</p>
+				<!--这里是右键菜单top-->
+				<div id="contact-tabs-list" class="contact-tabs-menu">
+					<ul>
+						<li id="contact-tabs-list-1">添加分组</li>
+						<li id="contact-tabs-list-2">重命名</li>
+					    <li id="contact-tabs-list-3">删除分组</li>
+					</ul>
+				</div>
+
+
+				<div class="contact-tabs-menu" id="move-to">
+					<ul>
+						<li>紧急联系人</li>
+						<li>家人</li>
+						<li>同学</li>
+						<li>已关注</li>
+					</ul>
+				</div>
+				<!--这里是右键菜单bottom-->
+			</div>
+		</div>
+		<div class="footer">
+			<div id="chart-top">
+				<p id="chart-state">易助足迹</p>
+				<p id="chart-tabs"><span onclick="lineChartQuestion();changeTitle('question');">提问</span> | <span onclick="lineChartHelp();changeTitle('help')">求助</span> | <span onclick="lineChartSOS();changeTitle('SOS')">求救</span></p>
+			</div>
+			<h1 id="#h1">
+				2015年易助提问走势
+			</h1>
+			<div class="chart-wrapper">
+       	     	<canvas id="line"></canvas>
+        	</div>
+        	<small>单位：个</small>
+		</div>
+		<p id="copyright">
+			Copyright © 2014-2015 E-Help. All Rights Reserved.
+		</p>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+.wrap {
+	margin: 5% auto;
+	font-size: 16px;
+}
+.id-cart {
+	display: block;
+	width: 80%;
+	margin: 10% auto;
+}
+.input-tip {
+	text-align: left;
+	border-left: 1px solid #f0f0f0;
+}
+input[type=file] {
+	width: 100%;
+}
+.warning {
+	color: red;
+}
+.btn-success {
+	width: 50%;
+}
+.submit-tip {
+	margin: 10%;
+	text-align: center;
+	font-size: 20px;
+}

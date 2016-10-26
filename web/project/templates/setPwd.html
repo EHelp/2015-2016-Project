@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="icon" href="{{static_url("images/SecureImages/logo.png")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/common.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/phone.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/semantic.min.css")}}">
+</head>
+<body class="phone-page">
+	<div class="fix-groups">
+		<a class="download-bt" href="http://120.24.208.130:8081/" target="blank">
+			<i class="download icon"></i>
+			<br>
+			<span>下载</span>
+		</a>
+		<a class="female-bt">
+			<i class="wechat icon"></i>
+				<br>
+				<span class="erweima"><img src="static/images/erweima.jpg"></span>
+			<span>客服</span>
+		</a>
+	</div>
+	<div class="banner">
+		<div class="my-content">
+			<a class="logo">
+				<img src="{{static_url("images/logo.png")}}" class="logoimg">
+			</a>
+            <a class="item" href="/">易助首页</a>
+            <a class="item" href="/structure">体系架构</a>
+            <a class="item" href="/culture">文化理念</a>
+            <a class="item" href="/help">帮助中心</a>
+            <a class="item" href="/aboutus">关于我们</a>
+            <a class="login" href="/account/login">
+                <i class="icon-signin"></i>
+                登录
+            </a>
+            <a class="signup" href="/account/regist">
+                注册
+                <i class="icon-signin"></i>
+            </a>
+		</div>
+	</div>
+	<div class="phone-wrapper">
+		<div class="ui ordered steps">
+			<div class="completed step">
+				<div class="content">
+					<div class="title">
+						身份验证
+					</div>
+					<div class="description">
+						输入您的登陆账号
+					</div>
+				</div>
+			</div>
+			<div class="step active">
+				<div class="content">
+					<div class="title">
+						找回密码
+					</div>
+					<div class="description">
+						重置您的密码
+					</div>
+				</div>
+			</div>
+			<div class="step">
+				<div class="content">
+					<div class="title">
+						操作完成
+					</div>
+					<div class="description">
+						打 dasd
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ui piled segments">
+			<div class="identify">
+				<form class="ui form">
+					{% raw xsrf_form_html() %}
+					<input type="hidden" id="account" name="account" value="{{ account }}">
+					<div class="field">
+						<label>新密码</label>
+						<input type="password" id="password" name="password" placeholder="password">
+					</div>
+					<div class="field">
+						<label>确认新密码</label>
+						<input type="password" id="re_password" name="password" placeholder="password">
+					</div>
+					<button id="button_setpwd" class="ui button">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="bottom-info">
+		<div class="rights">
+			Copyright © 2015-2015 DDL. All rights reserved.
+		</div>
+	</div>
+	<script type="text/javascript" src="{{static_url("js/jquery-2.1.4.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/semantic.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/script.js")}}"></script>
+</body>
+</html>

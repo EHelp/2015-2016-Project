@@ -1,0 +1,82 @@
+<html>
+<head>
+	<title>账户安全</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="{{static_url("images/e-help.png")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/bootstrap.min.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/changeInform.css")}}">
+	<script type="text/javascript" src="{{static_url("js/jquery-1.10.0.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.md5.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/bootstrap.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.validate-1.13.1.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/changemobile.js")}}"></script>
+</head>
+<body>
+	<div class="navbar navbar-inverse" role="navigation">
+	      <div class="navbar-header">
+	        <a href="/account" class="navbar-brand"><img src="{{static_url("images/SecureImages/logo.png")}}" class="logo logoimg"></a>
+	      </div>
+	      <ul class="nav navbar-nav">
+	        <li id="index"><a href="/account"><img src="{{static_url("images/SecureImages/Home.png")}}" class="navLogo">首页</a></li>
+	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="bank1.html"><img src="{{static_url("images/SecureImages/Heart.png")}}" class="navLogo">爱心银行<span class="caret"></span></a>
+	                <ul class="dropdown-menu">
+	                  <li><a href="bank3.html">转账</a></li>
+	                  <li><a href="bank2.html">收支记录</a></li>
+	                </ul>
+	        </li>
+	        <li><a href="#"><img src="{{static_url("images/SecureImages/People.png")}}" class="navLogo">我的信誉</a></li>
+	            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{static_url("images/SecureImages/user.png")}}" class="navLogo">个人中心<b class="caret"></b></a>
+	              <ul class="dropdown-menu">
+	                      <li><a href="#">实名认证</a></li>
+	                      <li><a href="#">个人信息</a></li>
+	                  <li><a href="#">易助记录</a></li>
+	              </ul>
+	            </li>
+	          <li><a href="#"><img src="{{static_url("images/SecureImages/Message.png")}}" class="message"></a></li>
+	          <li class="dropdown leftfloat"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{static_url("images/SecureImages/Settings.png")}}" class="message"><b class="caret"></b></a>
+	              <ul class="dropdown-menu">
+	                      <li id="modify_user"><a href="/account/userinfo/modify">账号安全</a></li>
+	                      <li><a href="/account/logout">退出登录</a></li>
+	              </ul>
+	            </li>
+	      </ul>
+	</div>
+	<div class="wrap">
+		<form class="form-horizontal" id="phoneNumber">
+			<div class="form-group">
+				<label for="newphone" class="col-sm-4 control-label">新手机号码：</label>
+				<div class="col-sm-6">
+					<input class="form-control" id="newphone" name="newphone">
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+			<div class="form-group">
+				<label for="comID" class="col-sm-4 control-label">输入验证码：</label>
+				<div class="col-sm-6">
+					<div class="input-group">
+						<input class="form-control" id="comID" name="comID">
+						<span class="input-group-btn">
+							<button type="button" value="获取验证码" class="btn btn-primary" id="getComID">获取验证码</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-8">
+					<p id="submitComID"></p>
+					<button type="submit" class="btn btn-primary ensure">确定</button>
+				</div>
+				<input value="" id="secret" type="hidden">
+				<input value="{{account}}" class="account" type="hidden">
+				<input value="{{email}}" class="email" type="hidden">
+				<input value="{{id}}" class="id" type="hidden">
+				<div class="col-sm-1"></div>
+			</div>
+		</form>
+	</div>
+
+	
+</body>
+</html>

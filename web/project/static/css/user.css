@@ -1,0 +1,144 @@
+.user-wrapper {
+	width: 1000px;
+	min-height: 800px;
+	border: 1px solid #e8e8e8;
+	margin: 30px auto 0 auto;
+	overflow: hidden;
+}
+
+.left-block {
+	width: 800px;
+	float: left;
+	padding: 20px 25px 20px 25px;
+}
+
+.right {
+	width: 195px;
+	float: right;
+}
+
+.types i, .types span {
+	color: #acadb1;
+}
+
+.types button:hover i, .types button:hover span, .types button.active span, .types button.active i {
+	color: #ff695e;
+}
+
+button.active.ui.inverted.red.basic.button {
+	box-shadow: 0 0 0 2px #ff392b inset!important;
+}
+
+.map {
+	width: 750px;
+}
+
+.types a button span, .types a button i {
+	font-size: 25px !important;
+}
+
+.types button {
+	padding-top: 22px !important;
+}
+
+.types {
+	overflow: hidden;
+	height: 98px;
+	width: 750px;
+	padding: 14px 0 14px 0;
+	background-color: rgba(253, 253, 253, 1);
+	border-bottom: 1px solid #e8e8e8;
+	margin-bottom: 10px;
+}
+
+.types a {
+	display: block;
+	float: left;
+	margin-left: 85px;
+	overflow: hidden;
+}
+
+.my-message {
+	height: 220px;
+	border: 1px solid #e8e8e8;
+	width: 750px;
+	margin: 0 auto 10px auto;
+	padding: 10px 5px 0 10px;
+}
+
+.fixed {
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+}
+
+.ghost {
+	width: 100%;
+	height: 98px;
+	display: none;
+}
+
+textarea {
+	width: 612px;
+    height: 158px;
+    resize: none;
+}
+
+.my-sidebar {
+	width: 115px;
+	float: right;
+	height: 158px;
+	border: 3px dashed #888;
+}
+
+
+.my-sidebar i.icon {
+	font-size: 23px;
+	margin: 13px 0 0 3px;
+}
+
+.people {
+	width: 612px;
+	height: 45px;
+	float: left;
+}
+
+.people img {
+	width: 40px;
+	height: 40px;
+}
+
+.people i.add.circle {
+    border: 3px dashed #888;
+    font-size: 24px;
+    height: 40px;
+    width: 40px;
+    display: block;
+    float: left;
+    line-height: 34px;
+}
+
+button.green {
+	margin-left: 5px !important;
+}
+
+.ui.list {
+	width: 750px;
+	overflow: hidden;
+}
+
+.ui.list .content {
+	width: 700px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.ui.list .item {
+	width: 732px;
+}
+
+h2 {
+	display: block;
+	width: 100px;
+	margin: 10px auto 0 auto !important;
+}

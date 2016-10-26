@@ -1,0 +1,164 @@
+新建一个用户挨着的。
+update user set
+update event set longitude=113.4130463810, latitude=23.0713953436 where id=379
+update user set longitude=113.4130463810, latitude=23.0713953436 where id=123
+curl -d "id=72&type=2&longitude=137.123&latitude=100.123" http://localhost:8000/android/emergency_launch
+curl -d "id=125&type=2&longitude=137.123&latitude=100.123" http://120.24.208.130:8000/android/emergency_launch
+curl -d "id=125&type=2&longitude=113.4130463810&latitude=23.0713953436" http://120.24.208.130:8000/android/emergency_launch
+
+测试取消事件：
+curl -d "id=110&event_id=4" http://localhost:8000/android/emergency_cancel
+
+结束求救事件：
+curl -d "id=110&event_id=4" http://120.24.208.130:8000/android/emergency_complete
+
+前往帮助：
+curl -d "id=103&event_id=1&launcher_id=104&type=2" http://localhost:8000/android/give_support
+curl -d "id=74&event_id=504&launcher_id=72&type=2" http://localhost:8000/android/give_support
+curl -d "id=125&event_id=223&launcher_id=126&type=2" http://120.24.208.130:8000/android/give_support
+
+列出前往帮助者具体信息：
+curl -d "event_id=504" http://localhost:8000/android/emergency_helper_list
+curl -d "event_id=2" http://120.24.208.130:8000/android/emergency_helper_list
+
+查询事件的详细信息：
+curl -d "event_id=1" http://localhost:8000/android/event_details
+curl -d "event_id=2" http://120.24.208.130:8000/android/event_details
+
+获取附近的事件：
+curl -d "longitude=137.123&latitude=100.123" http://localhost:8000/android/get_events
+curl -d "longitude=137.123&latitude=100.123" http://120.24.208.130:8000/android/get_events
+curl -d "longitude=113.4130463810&latitude=23.0713953436" http://120.24.208.130:8000/android/get_events
+
+对事件进行评价：
+curl -d "id=123&user_id=125&value=10&event_id=2" http://120.24.208.130:8000/android/evaluate_event
+
+获取前往帮助的人数：
+curl -d "event_id=2" http://120.24.208.130:8000/android/get_helper_num
+
+取消前往帮助：
+curl -d "event_id=479&id=72&launcher_id=73&type=2" http://localhost:8000/android/cancel_support
+
+发出求助和提问：
+curl -d "id=103&type=1&longitude=137.123&latitude=100.123&demand_number=2&love_coin=1&title=liyang&content=hheheehhe" http://localhost:8000/android/help_launch
+curl -d "id=73&type=0&love_coin=1&title=france&content=hheheehhe&longitude=137.123&latitude=100.123" http://localhost:8000/android/help_launch
+
+curl -d "id=125&type=0&love_coin=1&title=ggg&content=jjjjjjjjj" http://120.24.208.130:8000/android/help_launch
+
+完成，取消求助：
+curl -d "id=73&event_id=493" http://localhost:8000/android/emergency_complete
+curl -d "id=73&event_id=493" http://localhost:8000/android/emergency_cancel
+
+查看施助者列表：
+curl -d "event_id=493" http://localhost:8000/android/emergency_helper_list
+
+查看前往帮助的人数：
+curl -d "event_id=493" http://localhost:8000/android/get_helper_num
+
+查看事件的细节：
+curl -d "event_id=493" http://localhost:8000/android/event_details
+
+前往帮助：
+curl -d "id=104&event_id=9&launcher_id=103&type=1" http://localhost:8000/android/give_support
+
+进行评价：
+curl -d "id=73&user_id=72&value=20&event_id=493" http://localhost:8000/android/evaluate_event
+
+取消前往帮助：
+curl -d "event_id=384&id=125&launcher_id=123&type=2" http://120.24.208.130:8000/android/cancel_support
+curl -d "event_id=471&id=74&launcher_id=73&type=2" http://localhost:8000/android/cancel_support
+
+获取事件发起者的详细信息：
+curl -d "event_id=1" http://localhost:8000/android/recipient_info
+
+///----------------------/////
+备注信息：用户名不可随意更改。
+user表中的经度和纬度的处理。（防止被拐卖，小孩通过这个跟踪找回。）
+个人中心中的所在地，与经纬度挂钩
+///----------------------/////
+
+测试获取用户的所有信息：
+curl -d "account=younglee" http://localhost:8000/android/user/get_information
+
+修改用户的个人信息：(有bug已更正)
+curl -d "id=125&location=广州" http://120.24.208.130:8000/android/user/modify_information
+curl -d "id=103&anaphylaxis=alcohol" http://localhost:8000/android/user/modify_information
+curl -d "id=74&nickname=root" http://localhost:8000/android/user/modify_information
+
+
+添加紧急联系人：
+curl -d "" http://localhost:8000/android/user/manage_static_relation
+
+点赞取消赞:
+curl -d "operation=1&id=73&event_id=498" http://localhost:8000/android/event/manage_like
+curl -d "operation=1&id=125&event_id=446" http://120.24.208.130:8000/android/event/manage_like
+////----bug: when we like the event, the follow_number can not be updated at once.
+update event set follow_number = follow_number + 1 where id = %d and type = %d
+
+添加紧急联系人：
+curl -d "operation=1&id=125&user_id=123&type=1&content=i am liyang" http://120.24.208.130:8000/android/user/manage_static_relation
+curl -d "operation=1&id=73&user_id=72&type=1&content=iamliyang" http://localhost:8000/android/user/manage_static_relation
+
+删除紧急联系人：
+curl -d "operation=0&id=73&user_id=72" http://localhost:8000/android/user/manage_static_relation
+
+处理紧急联系人添加请求：
+curl -d "operation=1&id=72&user_id=73" http://localhost:8000/android/user/handle_static_relation
+
+获取用户绑定的紧急联系人：
+curl -d "state=0&id=72" http://localhost:8000/android/user/get_static_relation
+
+社区广场获取提问事件：
+curl -d "operation=3&id=103" http://localhost:8000/android/get_my_events
+
+社区广场获取求助信息：
+curl -d "operation=2&id=103&longitude=137.123&latitude=100.123" http://localhost:8000/android/get_my_events
+
+我发起的事件：
+curl -d "operation=0&id=103" http://localhost:8000/android/get_my_events
+
+我参与的事件：
+curl -d "operation=1&id=104" http://localhost:8000/android/get_my_events
+////---------------发现bug，数据库中的event_id不通但是查询结果居然相同的id，但是其他不同?
+
+社区广场对提问进行回答：
+curl -d "id=72&event_id=503&content=jijijijiji" http://localhost:8000/android/event/add_answer
+
+社区广场上取消提问回答内容：
+curl -d "id=72&event_id=503&answer_id=1" http://localhost:8000/android/event/delete_answer
+
+获取社区广场上对提问的回答：
+curl -d "event_id=503" http://localhost:8000/android/event/get_answers
+curl -d "event_id=503" http://localhost:8000/android/event/get_answers
+curl -d "id=104&event_id=5&answer_id=11" http://localhost:8000/android/event/get_answers
+
+采纳某个回答：
+curl -d "id=73&event_id=503&answer_id=1" http://localhost:8000/android/event/adopt_answer
+
+通过手机号码，获取该用户的id和其他信息：
+curl -d "phone=13246817678" http://localhost:8000/android/user/get_user_info_from_phone
+curl -d "phone=13246817678" http://120.24.208.130:8000/android/user/get_user_info_from_phone
+
+修改用户密码：
+curl -d "phone=13246817676&password=6a3636ac40e0965185bee9458a5a83be&salt=XLzAbFNm&new_password=123456789" http://localhost:8000/android/user/change_password
+curl -d "phone=13246817676&password=7e23d191040eb42485c34bcc449998d0&salt=XLzAbFNm" http://localhost:8000/android/login
+
+获取验证码：
+curl -d "phone=13246817675&type=0" http://localhost:8000/android/getMes
+
+提交修改绑定手机号：
+curl -d "sms_code=1234&temp_id=1065eaa1-a0a9-11e5-aaad-005056c00008&id=74&phone=13246817675" http://localhost:8000/android/user/modify_phone
+
+修改绑定邮箱：
+curl -d "id=74&email=13456789@qq.com" http://localhost:8000/android/user/modify_email
+
+用户反馈：
+curl -d "title=不好用&content=真的不好用" http://localhost:8000/android/feedback
+
+删除提问
+curl -d "event_id=563&id=91" http://localhost:8000/android/delete_question_event
+
+////--------------------------//////
+问题：
+发送短信内容定制。（发送定制短信）
+////--------------------------//////

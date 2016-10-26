@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block header %}
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/changeInform.css")}}">
+{% end %}
+{% block content %}
+
+	<div class="wrap">
+		<form class="form-horizontal" id="phoneNumber">
+			<div class="form-group">
+				<label for="newphone" class="col-sm-4 control-label">新手机号码：</label>
+				<div class="col-sm-6">
+					<input class="form-control" id="newphone" name="newphone">
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+			<div class="form-group">
+				<label for="comID" class="col-sm-4 control-label">输入验证码：</label>
+				<div class="col-sm-6">
+					<div class="input-group">
+						<input class="form-control" id="comID" name="comID">
+						<span class="input-group-btn">
+							<button type="button" value="获取验证码" class="btn btn-primary" id="getComID">获取验证码</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-8">
+					<p id="submitComID"></p>
+					<button type="submit" class="btn btn-primary ensure">确定</button>
+				</div>
+				<input value="" id="secret" type="hidden">
+				<input value="{{account}}" class="account" type="hidden">
+				<input value="{{email}}" class="email" type="hidden">
+				<input value="{{id}}" class="id" type="hidden">
+				<div class="col-sm-1"></div>
+			</div>
+		</form>
+	</div>
+
+	
+{% end %}
+
+{% block footer %}
+	<script type="text/javascript" src="{{static_url("js/jquery.md5.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.validate-1.13.1.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/changemobile.js")}}"></script>
+{% end %}

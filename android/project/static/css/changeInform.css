@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Microsoft YaHei', '微软雅黑', 'iberation Sans','Helvetica Neue', Helvetica,Arial,sans-serif;
+}
+/*for navigation*/
+.navLogo {
+  width: 25px;
+  height: 25px;
+  margin: 0px 10px 0px 10px;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  margin: -45px 20px -50px 20px;
+}
+.logoimg {
+  width: 70px;
+  height: 60px;
+  margin-top: -15px;
+}
+.message {
+  width: 30px;
+  height: 25px;
+}
+.navbar-nav {
+  position: relative;
+  float: right;
+  right: 8%;
+  margin: 0px;
+}
+.navbar-nav .dropdown-menu {
+  background-color: gray;
+}
+.navbar {
+  margin-bottom: 35px;
+  border-radius: 0;
+  height: 65px;
+}
+/*end navigation*/
+.left a {
+  text-decoration: none;
+}
+.left ul li {
+  font-size: 120%;
+  list-style: none;
+  height: 10%;
+  text-align: center;
+  padding: 20%;
+  margin: 0 -15px;
+}
+.left ul li:hover {
+  background-color: #f0f0f0;
+}
+.password {
+  background-color: #f0f0f0;
+}
+.btn {
+  display: block;
+  margin: 0 auto;
+}
+.change-password {
+
+}
+.panel-body {
+  text-align: center;
+}
+.change-mobile .tips {
+  text-align: center;
+  margin: 30px;
+}
+.modal-dialog {
+  text-align: center;
+}
+.change-mobile {
+
+}
+.wrap {
+  width:60%;
+  margin:10% auto;
+  font-size:20px;
+  text-align:center;
+}
+.wrap p {
+  margin:5%;
+}
+.left {
+  position: fixed;
+  left: 16%;
+  top: 92px;
+}
+.had-confirm {
+  color: #00B050;
+
+  /*判断是否实名前需要隐藏*/
+  display: none;
+}
+.hadnt-comfirm {
+  /*判断是否实名前需要隐藏*/
+  display: none;
+}
+.tips {
+  margin: 5%;
+  font-size: 20px;
+}
+#theNewE {
+  padding-top: 0;
+}
+#submitComID {
+  font-size: 16px;
+}
+#the-emailtip {
+  font-size: 16px;
+}
+
+.left input {
+  display: none;
+}
+.wrong-password {
+  font-size: 8px;
+  color: rgb(256, 0, 0);
+  display: none;
+}
+.id, .is-ver-password {
+  display: none;
+}

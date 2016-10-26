@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>登陆</title>
+	<link rel="icon" href="{{static_url("images/SecureImages/logo.png")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/common.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/login.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/semantic.min.css")}}">
+</head>
+<body class="help-page">
+	<div class="fix-groups">
+		<a class="download-bt" href="http://120.24.208.130:8081/" target="blank">
+			<i class="download icon"></i>
+			<br>
+			<span>下载</span>
+		</a>
+		<a class="female-bt">
+			<i class="wechat icon"></i>
+				<br>
+				<span class="erweima"><img src="static/images/erweima.jpg"></span>
+			<span>客服</span>
+		</a>
+	</div>
+	<div class="banner">
+		<div class="my-content">
+			<a class="logo">
+				<img src="{{static_url("images/logo.png")}}" class="logoimg">
+			</a>
+            <a class="item" href="/">易助首页</a>
+            <a class="item" href="/structure">体系架构</a>
+            <a class="item" href="/culture">文化理念</a>
+            <a class="item" href="/help">帮助中心</a>
+            <a class="item" href="/aboutus">关于我们</a>
+			<a class="login" href="/account/login">
+				<i class="sign in icon"></i>
+				登录
+			</a>
+			<a class="signup" href="/account/regist">
+				注册
+				<i class="sign in icon"></i>
+			</a>
+		</div>
+	</div>
+	<div class="login-wrapper">
+		<form id="login_form" class="ui form">
+			{% raw xsrf_form_html() %}
+			<div class="two field">
+				<label>账号</label>
+				<input id="account" type="text" name="account" placeholder="user name">
+			</div>
+			<div class="two field">
+				<label>密码</label>
+				<input id="password" type="password" name="password" placeholder="password">
+			</div>
+			<button id="button_login" class="ui button" type="submit">Submit</button>
+			<a class="forget" href="/account/forget">忘记登录密码？</a>	
+		</form>
+	</div>
+	<div class="bottom-info">
+		<div class="rights">
+			Copyright © 2015-2015 DDL. All rights reserved.
+		</div>
+	</div>
+	<script type="text/javascript" src="{{static_url("js/jquery-2.1.4.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/semantic.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/help.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.md5.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/script.js")}}"></script>
+</body>
+</html>

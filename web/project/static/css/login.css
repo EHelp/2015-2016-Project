@@ -1,0 +1,19 @@
+.login-wrapper {
+	width: 500px;
+	margin: 30px auto 0 auto;
+}
+
+.bottom-info {
+	position: absolute;
+	bottom: 0;
+}
+
+.forget {
+	text-decoration: none;
+	color: #08c;
+}
+
+.logoimg {
+  width: 70px;
+  height: 60px;
+}

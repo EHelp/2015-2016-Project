@@ -1,0 +1,359 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+}
+* a:hover,
+* a:focus {
+	text-decoration: none;
+}
+
+
+/*for navigation*/
+.my-content img {
+	vertical-align: initial;
+}
+/*end navigation*/
+.summarize {
+	min-width: 900px;
+	position: relative;
+}
+
+.total-summarize {
+	width: 100%;
+	height: 500px;
+	font-size: 25px;
+	background-image: url(../images/yeo_images/background/summarize.jpg);
+	background-position: 50% -280px;
+	text-align: center;
+	list-style: none;
+}
+.total-summarize li {
+	display: block;
+	text-align: left;
+}
+.phone {
+	width: 200px;
+	height: 440px;
+	margin: 0 auto;
+	padding-top: 20px;
+	position: relative;
+}
+.phone li {
+	margin: 15px 0;
+}
+.total-summarize img {
+	width: 200px;
+	height: 420px;
+}
+.left-func {
+	position: absolute;
+	left: -220px;
+	top: 50px;
+}
+.left-func li {
+	margin-bottom: 70px;
+}
+.left-func .icon-book {
+	color: #A5673F;
+}
+.left-func .icon-heart {
+	color: #DB2828;
+}
+.left-func .icon-user-md {
+	color: #00B5AD;
+}
+.right-func {
+	position: absolute;
+	right: -350px;
+	top: 50px;
+}
+.right-func>li {
+	margin-bottom: 25px;
+}
+.right-func .icon-envelope {
+	color: #F07A26;
+}
+.right-func .icon-credit-card {
+	color: #6F2F9F;
+}
+.right-func .icon-group {
+	color: #027A49;
+}
+.right-func .icon-globe {
+	color: #006FBF;
+}
+.right-func .icon-umbrella {
+	color: #91CF4F;
+}
+.spec-summarize {
+	width: 100%;
+	height: 200px;
+	cursor: pointer;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.logoimg {
+  width: 70px;
+  height: 60px;
+}
+
+
+.spec-summarize li {
+	display: block;
+	width: 31%;
+	height: 100%;
+	background-image: url(../images/yeo_images/background/white.jpg);
+	padding: 0 1%;
+	float: left;
+	margin: 0 10px;
+	text-align: center;
+	position: relative;
+}
+.hide-inform {
+	display: none;
+	background-color: white;
+	width: 31%;
+	padding: 0 1%;
+	float: left;
+}
+.spec-summarize i {
+	display: block;
+	width: 60px;
+	height: 60px;
+	margin: 0 auto;
+	border: 1px solid #037B4A;
+	border-radius: 50%;
+
+}
+.sum-icon {
+	color: #037B4A;
+	font-size: 40px;
+	line-height: 60px;
+}
+.spec-summarize li p {
+	width: 200px;
+	margin: 0 auto;
+	position: relative;
+}
+.spec-summarize h2 {
+	margin: 5px 0;
+	color: #037B4A;
+}
+
+.tip {
+	width: 100%;
+	height: 100px;
+	margin: 0;
+	padding-top: 20px;
+	font-size: 20px;
+	text-align: center;
+	background-color: #f0f0f0;
+}
+.word-ehelp {
+	margin: 0 20px;
+	font-size: 30px;
+	color: #037B4A;
+
+}
+.word {
+	margin: 0 20px;
+	font-size: 30px;
+}
+.show {
+	background-size: 1600px 1000px;
+	background-attachment: fixed;
+	position: relative;
+}
+.image0 {
+	width: 100%;
+	height: 550px;
+	background-image: url(../images/yeo_images/background/image0.jpg);
+	background-position: 50% 0;
+}
+
+.introduction {
+	position: relative;
+	width: 100%;
+	height: 500px;
+}
+
+.introduction h2 {
+	margin: 0;
+}
+
+.intro-text h2 {
+	margin-bottom: 20px;
+	color: #037B4A;
+	font-size: 36px;
+	font-weight: 900;
+}
+.intro-text p {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 50px;
+}
+
+.introduction0 .intro-text {
+	position: absolute;
+	top: 100px;
+	left: 10%;
+}
+.intro-image {
+	width: 820px;
+	height: 460px;
+	background-size: 880px 460px;
+	z-index: -1;
+}
+
+.introduction0 .intro-image {
+	background-image: url(../images/yeo_images/background/intro0.png);
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+
+/*image1*/
+
+.image1 {
+	width: 100%;
+	height: 550px;
+	background-image: url(../images/yeo_images/background/image1.jpg);
+	background-position: 50% 0;
+}
+
+.introduction1 {
+	height: 460px;
+}
+
+.introduction1 .intro-text {
+	position: absolute;
+	top: 100px;
+	right: 10%;
+}
+
+.introduction1 .intro-image {
+	background-image: url(../images/yeo_images/background/intro1.png);
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+/*image2*/
+.image2 {
+	width: 100%;
+	height: 550px;
+	background-image: url(../images/yeo_images/background/image2.jpg);
+	background-position: 50% 0;
+}
+
+.introduction2 {
+	height: 480px;
+}
+.introduction2 .intro-text {
+	position: absolute;
+	top: 100px;
+	left: 10%;
+}
+
+.introduction2 .intro-image {
+	height: 480px;
+	background-image: url(../images/yeo_images/background/intro2.png);
+	background-size: 880px 480px;
+	position: absolute;
+	right: 0;
+}
+
+.image3 {
+	width: 100%;
+	height: 550px;
+	background-image: url(../images/yeo_images/background/image3.jpg);
+	background-position: 50% 0;
+}
+
+
+.introduction3 .intro-text {
+	position: absolute;
+	top: 100px;
+	left: 10%;
+}
+
+.introduction3 .intro-image {
+	background-image: url(../images/yeo_images/background/intro3.png);
+	position: absolute;
+	right: 0;
+	top: 10px;
+
+}
+
+/*image4*/
+
+.image4 {
+	width: 100%;
+	height: 550px;
+	background-image: url(../images/yeo_images/background/image4.jpg);
+	background-position: 50% 0;
+}
+.introduction4 {
+	height: 460px;
+}
+
+.introduction4 .intro-text {
+	position: absolute;
+	top: 100px;
+	right: 10%;
+}
+
+.introduction4 .intro-image {
+	background-image: url(../images/yeo_images/background/intro4.png);
+	position: absolute;
+	left: -30px;
+	top: -10px;
+}
+
+.footer {
+	width: 100%;
+	position: relative;
+}
+.line {
+	width: 100%;
+	height: 50px;
+	background-color: #336E83;
+	position: relative;
+	top: -20px;
+	overflow: hidden;
+}
+#copyright {
+    clear: both;
+    width: 960px;
+    margin: 0 auto;
+    padding-top: 16px;
+    border-top: 1px solid #666;
+    line-height: 17px;
+    text-align: center;
+    color: #404040;
+}
+
+.down {
+	width: 53px;
+	height: 52px;
+	background-image: url(../images/yeo_images/icons/next.png);
+	cursor: pointer;
+	position: absolute;
+	left: 50%;
+	top: -26px;
+}
+
+
+
+
+.test {
+	width: 100px;
+	height: 100px;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+}

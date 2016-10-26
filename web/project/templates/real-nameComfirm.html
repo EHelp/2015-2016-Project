@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block header %}
+	<title>实名认证</title>
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/changeInform.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/real-name.css")}}">
+{% end %}
+{% block content %}
+	<div class="wrap">
+		<div class="col-sm-2 col-md-2"></div>
+		<div class="col-sm-8 col-md-8">
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:33%;">提交申请</div>
+			</div>
+			<form method="post" class="form-horizontal" id="cert" enctype="multipart/form-data">
+				{% raw xsrf_form_html() %}
+				<div class="form-group">
+					<label for="realname" class="col-sm-3 control-label"><span class="warning">*</span>身份证姓名：</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="realname" name="realname">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="realID" class="col-sm-3 control-label"><span class="warning">*</span>身份证号码：</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="realID" name="realID">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label"><span class="warning">*</span>手持证件照：</label>
+					<div class="col-sm-9">
+						<div class="col-sm-6">
+							<img class="id-cart" src="{{static_url("images/SecureImages/id-cart.jpg")}}">
+							<input type="file" name="fileImage" id="inputfile">
+
+						</div>
+						<div class="col-sm-6 input-tip">
+							<p>请以左图所示双手手持身份证，需免冠，五官清晰可见。照片内容真实有效，不得做任何修改。支持jpg,png,gif格式照片，大小不得超过2M。</p>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success">确认提交</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-sm-2 col-md-2"></div>
+	</div>
+{% end %}
+
+{% block footer %}
+	<script type="text/javascript" src="{{static_url("js/comfirmName.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.validate-1.13.1.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/ajaxfileupload.js")}}"></script>
+{% end %}

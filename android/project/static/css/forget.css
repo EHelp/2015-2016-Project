@@ -1,0 +1,26 @@
+body.forget-page {
+	background-color: #e9eff3;
+}
+
+.forget-wrapper {
+	width: 800px;
+	margin: 30px auto 0 auto;
+}
+
+.ui.ordered.steps {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.bottom-info {
+	position: absolute;
+	bottom: 0;
+}
+
+.identify {
+	width: 300px;
+}
+
+.ui.segments.piled {
+	padding: 30px 0 30px 250px;
+}

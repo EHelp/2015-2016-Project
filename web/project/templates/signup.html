@@ -1,0 +1,102 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="icon" href="{{static_url("images/SecureImages/logo.png")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/common.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/signup.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/semantic.min.css")}}">
+</head>
+<body class="help-page">
+	<div class="fix-groups">
+		<a class="download-bt" href="http://120.24.208.130:8081/" target="blank">
+			<i class="download icon"></i>
+			<br>
+			<span>下载</span>
+		</a>
+		<a class="female-bt">
+			<i class="wechat icon"></i>
+				<br>
+				<span class="erweima"><img src="static/images/erweima.jpg"></span>
+			<span>客服</span>
+		</a>
+	</div>
+	<div class="banner">
+		<div class="my-content">
+			<a class="logo">
+				<img src="{{static_url("images/logo.png")}}" class="logoimg">
+			</a>
+            <a class="item" href="/">易助首页</a>
+            <a class="item" href="/structure">体系架构</a>
+            <a class="item" href="/culture">文化理念</a>
+            <a class="item" href="/help">帮助中心</a>
+            <a class="item" href="/aboutus">关于我们</a>
+			<a class="login" href="/account/login">
+				<i class="sign in icon"></i>
+				登录
+			</a>
+			<a class="signup" href="/account/regist">
+				注册
+				<i class="sign in icon"></i>
+			</a>
+		</div>
+	</div>
+	<div class="">
+		<form class="ui form" id="ui_form">
+			{% raw xsrf_form_html() %}
+			<div class="field">
+				<label>账号</label>
+				<div>
+					<input id="account" type="text" name="account" placeholder="user name">
+				</div>
+			</div>
+			<div class="field">
+				<label>密码</label>
+				<div>
+					<input id="password" type="password" name="password" placeholder="password">
+				</div>
+			</div>
+			<div class="field">
+				<label>确认密码</label>
+				<div>
+					<input id="re_password" type="password" name="re_password" placeholder="password">
+				</div>
+			</div>
+			<div class="field">
+				<label>邮箱</label>
+				<div>
+					<input id="email" type="text" name="email" placeholder="email">
+				</div>
+			</div>
+			<div class="field">
+				<label>电话</label>
+				<div>
+					<input id="phone" type="text" name="phone" placeholder="phone num">
+				</div>
+			</div>
+			<div class="field sure">
+				<label>验证码</label>
+				<div>
+					<input id="identification" type="text" name="identification" placeholder="identification">
+				</div>
+				<button id="iden_regist_button" class="ui inverted orange button get" type＝"button">获取验证码</button>
+				<button id="button_regist" class="ui button" type="submit">Submit</button>
+			</div>
+			
+		</form>
+	</div>
+	<div class="bottom-info">
+		<div class="rights">
+			Copyright © 2015-2015 DDL. All rights reserved.
+		</div>
+	</div>
+	<input type="hidden" id="secret">
+	<script type="text/javascript" src="{{static_url("js/jquery-2.1.4.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/semantic.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/help.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.validate-1.13.1.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/script.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("js/jquery.md5.js")}}"></script>
+</body>
+</html>

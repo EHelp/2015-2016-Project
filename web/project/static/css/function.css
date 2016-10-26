@@ -1,0 +1,57 @@
+.blocks {
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.blocks a {
+	display: block;
+	width: 420px;
+	height: 130px;
+	float: left;
+	color: #888;
+	font-size: 12px;
+	padding: 0 0 0 30px;
+	border: 2px solid #eaedef;
+	background-color: #FDFEFF;
+	margin: 10px;
+	box-sizing: content-box !important;
+}
+
+.blocks i.icon {
+	color: rgba(34, 196, 133, 1);
+	font-size: 70px;
+	line-height: 126px;
+
+}
+
+.blocks a:hover {
+	color: rgba(34, 196, 133, 1);
+	border: 2px solid rgba(34, 196, 133, 1);
+}
+
+.text {
+    float: right;
+    height: 80px;
+    width: 280px;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    margin: 25px 20px 0 0;
+    padding-left: 20px;
+}
+
+.text span:nth-child(1) {
+	color: #333;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.ui.segments {
+	width: 1000px;
+	margin: 30px auto 0 auto !important;
+}
+
+.text p {
+	margin-top: 10px;
+	color: #333;
+}

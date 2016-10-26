@@ -1,0 +1,99 @@
+关于注册：
+   点击发送验证码，（1）后台为前端写入一个uuid（后台存储这个uuid的相关信息和对应的验证码信息redis）
+                   （2）发送短信至对应的手机，并且反馈发送信息到前端。
+                    more: post '/android/getMes'
+                    require:{'phone': xxx，'type':0}
+                    resp:{'status': xxx,'temp_id':xxx} (200表示发送成功， 250表示短信发送失败， 300表示这个电话已注册)
+                    客户端需要保存这个temp_id作为短信验证的凭据。
+
+ 
+   点击下一步，    （1）将上面的temp_id及验证码发送到后台，进行验证码的匹配，并且反馈信息给前端。
+                    more: post '/android/verifyMes'
+                    require:{'temp_id':xxx,'sms_code':xxx}.
+		    resp:{'status': xxx} (200表示验证成功， 500表示验证失败)                    
+                    
+   
+   点击注册完成，  （1）向后台发送注册请求，并且后台给予注册反馈。然后进行跳转到登录界面。
+                    more: post '/android/register'
+                    require:{'phone':xxx, 'account':xxx, 'password':xxx, 'temp_id':xxx}(其中的password未进行MD5加密)
+                    resp:{'status':xxx, 'account':xxx, 'id':xxx, 'salt':xxx, 'chat_token':xxx} 手机端需要保存这些信息
+                    (200表示验证成功， 250表示注册失败， 270表示缺少cookie中session所需的记录不合法，用户名或密码已注册，300表示缺少必要字段) 
+
+关于登录:
+   点击登录按钮，  （1）查看缓存中是否有salt值，如果有转到下一步，如果没有向后台请求salt。
+	            more: post '/android/getSalt'
+		    require:{'phone':'xxx'}
+		    resp:{'status':'xxx', 'salt':xxx} 200表示成功获取，500表示失败
+		    客户端收到salt后将其缓存。
+  
+
+                   （2）向后台发送登录请求，后台给予一定的反馈信息。
+                    more: post '/android/login'
+		    require:{'phone':'xxx', 'salt':'xxx', 'password':'xxx'}  密码是经过MD5加密后的。
+		    resp：{'status': xxx, 'id':xxx, 'account':xxx} 200代表登录成功，500代表登录失败。
+                    前端经行修改状态值（user_status: true）
+
+关于找回密码：
+   点击发送验证码，（1）后台为前端写入一个uuid（后台存储这个uuid的相关信息和对应的验证码信息redis）
+                   （2）发送短信至对应的手机，并且反馈发送信息到前端。
+                    more: post '/android/getMes'
+                    require:{'phone': xxx, type:1}
+                    resp:{'status': xxx,'temp_id':xxx} (200表示发送成功， 250表示短信发送失败， 400表示不存在此手机号)
+                    客户端需要保存这个temp_id作为短信验证的凭据。
+
+ 
+   点击下一步，    （1）将上面的temp_id及验证码发送到后台，进行验证码的匹配，并且反馈信息给前端。
+                    more: post '/android/verifyMes'
+                    require:{'temp_id':xxx,'sms_code':xxx}.
+		    resp:{'status': xxx} (200表示验证成功， 500表示验证失败) 
+   
+   点击完成，      （1）向后台发送重置密码请求，并且后台给予反馈, 将salt作为传回给前端。然后进行跳转到登录界面。
+		    require:{'phone':'xxx', 'password':'xxx','temp_id':xxx}(前端未进行加密)
+                    more: post '/android/resetPassword'
+		    resp:{'status': xxx} (200表示修改成功， 500表示修改失败)
+   
+
+
+
+curl_test:
+
+curl -d "phone=18580747383&type=register" http://120.24.208.130:8000/android/getMes
+
+curl -d "sms_code=1234&temp_id=3fae806e-94bb-11e5-a2f2-00163e00067a" http://120.24.208.130:8000/android/verifyMes
+
+curl -d "phone=13246817678&password=79d1c0fdce67521a9e1c7c733fb14a2e&salt=YAxmRLNV" http://120.24.208.130:8000/android/login
+
+curl -d "phone=13246817678&password=61e6b7bfca375f19d4d688cbb1e519ea&salt=dMAFSLUk" http://localhost:8000/android/login
+
+
+curl -d "phone=18580747383&password=475977fe258a7d1c48f093eef8060dd7&salt=UVnIMtbe" http://localhost:8000/android/login
+
+curl -d "phone=13246817678&type=register" http://localhost:8000/android/getMes
+
+curl -d "sms_code=1804&temp_id=e9f1b570-8f91-11e5-b7d5-005056c00008" http://localhost:8000/android/verifyMes
+
+curl -d "phone=18580747383&account=test&password=1234567890&temp_id=3fae806e-94bb-11e5-a2f2-00163e00067a" http://120.24.208.130:8000/android/register
+
+curl -d "phone=13246817678&account=liyang&password=123456&temp_id=44a3978f-990b-11e5-9c4a-1867b074225c" http://localhost:8000/android/register
+
+curl -d "phone=13246817678&password=3a91ab6aeea8f6317cf0593cedde941e&salt=DPSLzTbK" http://localhost:8000/android/login
+
+curl -d "phone=13246817678" http://localhost:8000/android/getSalt
+
+curl -d "phone=13246817678&password=12345&temp_id=bfa31d80-8f97-11e5-925e-005056c00008" http://localhost:8000/android/resetPassword
+
+md5_encode = hashlib.md5()
+salt="XLzAbFNm"
+md5_encode.update("123456"+salt)
+print md5_encode.hexdigest()
+
+curl -d "phone=13246817678&type=0" http://localhost:8000/android/getMes
+curl -d "sms_code=6735&temp_id=49cdea91-a0b3-11e5-bb6f-005056c00008" http://localhost:8000/android/verifyMes
+
+curl -d "phone=13246817676&account=young&password=123456&temp_id=d31cbe80-a012-11e5-bddb-005056c00008" http://localhost:8000/android/register
+
+
+curl -d "id=74&nickname=alcohol" http://localhost:8000/android/user/modify_information
+
+curl -d "phone=13246817676&password=6a3636ac40e0965185bee9458a5a83be&salt=XLzAbFNm" http://localhost:8000/android/login
+

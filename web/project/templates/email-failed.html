@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block header %}
+	<title>账户安全</title>
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/changeInform.css")}}">
+{% end %}
+{% block content %}
+	<div class="wrap">
+		<img src="{{static_url("images/SecureImages/fail.png")}}"> 
+		<p style="margin:5%;">邮箱更改链接失效<br/>
+			{% if email is not None %}
+			你的邮箱{{ email }}验证失败</p>
+			{% end %}
+		<a href="/account">回到个人主界面</a>
+	</div>
+{% end %}
+
+{% block footer %}
+{% end %}

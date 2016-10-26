@@ -1,0 +1,9 @@
+//---------------12.03 update-----------------------------------
+alter table static_relation add column alias varchar(45) null;
+alter table answer add column valid tinyint not null default 1;
+create table if not exists event_like(user_id int not null, event_id int not null, time timestamp not null default current_timestamp on update current_timestamp, valid int not null default 1, primary key(user_id, event_id), constraint user_id_fx foreign key(user_id) references user(id) on delete cascade on update cascade, constraint event_id_fx foreign key(event_id) references event(id) on delete cascade on update cascade) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+create table if not exists trust(_from int not null, _to int not null, value decimal(10,7) not null default 0.0000, weight decimal(10,8) not null default 0.00000000, growth_factor decimal(10,8) not null default 0.00000000, primary key(_from ,_to), constraint from_fx foreign key(_from) references user(id) on delete cascade on update cascade, constraint to_fx foreign key(_to) references user(id) on delete cascade on update cascade) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+//----------------12.04 update--------------------------
+alter table static_relation add column status int not null default 0;
+

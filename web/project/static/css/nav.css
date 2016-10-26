@@ -1,0 +1,46 @@
+/*for navigation*/
+.logoimg {
+  width: 70px;
+  height: 70px;
+  margin-top: -18px;
+}
+.message {
+  width: 30px;
+  height: 25px;
+}
+.navbar-inverse {
+    background-color: #2F3241;
+    border-color: #2F3241;
+}
+.navbar-nav .dropdown-menu {
+  background-color: gray;
+}
+.navbar {
+  text-align: center;
+  margin-bottom: 35px;
+  border-radius: 0;
+  height: 65px;
+  width: 100%;
+}
+.navbar ul {
+  float: right;
+  padding-right: 3%;
+}
+.navbar-header {
+  float: left;
+  padding-left: 10%;
+}
+.navbar-header span {
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    color: #9d9d9d;
+}
+.navbar-nav>li>a {
+    padding-top: 18px;
+    padding-bottom: 15px;
+}
+.nav > li > a {
+    font-size: 20px;
+}
+/*end navigation*/

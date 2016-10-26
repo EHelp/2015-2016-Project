@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block header %}
+	<title>关系管理</title>
+		<link rel="stylesheet" type="text/css" href="{{static_url("css/relationship.css")}}">
+{% end %}
+{% block content %}
+		<div class="body"></div>
+	    <div>
+		    <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div>
+			<div class="col-sm-2 col-xs-2 col-md-2 col-lg-2 classfication">
+				<div class="panel panel-success down">
+				   <div class="panel-heading">
+				      <h3 class="panel-title">我的好友</h3>
+				   </div>
+				   <div class="panel-body">
+				      <div class="circle" id="family">家人圈</div>
+				      <div class="circle" id="relatives">亲朋圈</div>
+				      <div class="circle" id="neighbour">邻居圈</div>
+				      <div></div>
+				   </div>
+				</div>
+			</div>
+			<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div>
+			<div class="col-sm-7 col-xs-7 col-md-7 col-lg-7 specific">
+				<div class="family">
+					<table class="table table-hover">
+					   <caption>我的家人</caption>
+					   <thead>
+					      <tr>
+					         <th>昵称</th>
+					         <th>真实姓名</th>
+					         <th>关系</th>
+					         <th>联系方式</th>
+					         <th>操作</th>
+					      </tr>
+					   </thead>
+					   <tbody>
+
+						{% for item in family %}
+					      <tr>
+					         <td><img class="sexuality" src="{{static_url("images/relationship/male.png")}}" alt="male" />{{item["nickname"]}}</td>
+							
+							 {% if item["name"] is not None %}
+					         <td><img src="{{static_url("images/relationship/id.png")}}" alt="IDCard" class="idCard">{{item["name"]}}
+					         </td>
+							 {% else %}
+					         <td><img src="{{static_url("images/relationship/id.png")}}" alt="IDCard" class="idCard">还没实名认证
+					         </td>
+							 {% end %}	
+					         <td>
+					         	  <select>
+									  <option value="family">家人</option>
+									  <option value="relatives">亲朋</option>
+									  <option value="neighbour">邻居</option>
+								  </select>
+							  </td>
+					         <td>{{item["phone"]}}</td>
+					         <td><a href="#" class="delete">删除</a></td>
+					      </tr>
+
+						{% end %}
+
+					   </tbody>
+					</table>
+				</div>
+				<div class="relatives">
+					<table class="table table-hover">
+					   <caption>我的亲人</caption>
+					   <thead>
+					      <tr>
+					         <th>昵称</th>
+					         <th>真实姓名</th>
+					         <th>关系</th>
+					         <th>联系方式</th>
+					         <th>操作</th>
+					      </tr>
+					   </thead>
+					   <tbody>
+
+					   	  {% for item in career %}
+					      <tr>
+					         <td><img class="sexuality" src="{{static_url("images/relationship/male.png")}}" alt="male" />{{item["nickname"]}}</td>
+					         {% if item["name"] is not None %}
+					         <td><img src="{{static_url("images/relationship/id.png")}}" alt="IDCard" class="idCard">{{item["name"]}}
+					         </td>
+							 {% else %}
+					         <td><img src="{{static_url("images/relationship/id.png")}}" alt="IDCard" class="idCard">还没实名认证
+					         </td>
+							 {% end %}	
+					         <td>
+					         	  <select>
+					         	      <option value="relatives">亲朋</option>
+									  <option value="family">家人</option>
+									  <option value="neighbour">邻居</option>
+								  </select>
+							  </td>
+					         <td>{{item["phone"]}}</td>
+					         <td><a href="#" class="delete">删除</a></td>
+					      </tr>
+					      {% end %}
+					   </tbody>
+					</table>
+				</div>
+				<div class="neighbour">
+					<table class="table table-hover">
+					   <caption>我的邻居</caption>
+					   <thead>
+					      <tr>
+					         <th>昵称</th>
+					         <th>真实姓名</th>
+					         <th>关系</th>
+					         <th>联系方式</th>
+					         <th>操作</th>
+					      </tr>
+					   </thead>
+					   <tbody>
+
+					   	{% for item in neighbour %}
+					      <tr>
+					         <td><img class="sexuality" src="{{static_url("images/relationship/male.png")}}" alt="male" />{{item["nickname"]}}</td>
+					         {% if item["name"] is not None %}
+					         <td><img src="{{static_url("images/relationship/id.png")}}" alt="IDCard" class="idCard">{{item["name"]}}
+					         </td>
+							 {% else %}
+					         <td><img src="{{static_url("images/relationship/id.png")}}" alt="IDCard" class="idCard">还没实名认证
+					         </td>
+							 {% end %}	
+					         <td>
+					         	  <select>
+					         	      <option value="neighbour">邻居</option>
+									  <option value="family">家人</option>
+									  <option value="relatives">亲朋</option>
+								  </select>
+							  </td>
+					         <td>{{item["phone"]}}</td>
+					         <td><a href="#" class="delete">删除</a></td>
+					      </tr>
+					      {% end %}
+					   </tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div>
+		</div>
+{% end %}
+
+{% block footer %}
+<script type="text/javascript" src="{{static_url("js/relationship.js")}}"></script>
+{% end %}
