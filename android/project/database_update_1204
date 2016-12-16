@@ -6,4 +6,14 @@ create table if not exists trust(_from int not null, _to int not null, value dec
 
 //----------------12.04 update--------------------------
 alter table static_relation add column status int not null default 0;
-
+//-----------------12.16 update--------------------------
+DROP TABLE IF EXISTS `event_like`;
+create table `event_like`(
+  user_id_event_like int not null, 
+  event_id_event_like int not null,
+   time timestamp not null default current_timestamp on update current_timestamp,
+    valid int not null default 1, 
+    primary key(user_id_event_like, event_id_event_like), 
+    constraint user_id_fx_event_like foreign key(user_id_event_like) references user(id) on delete cascade on update cascade, 
+    constraint event_id_fx_event_like foreign key(event_id_event_like) references event(id) on delete cascade on update cascade) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+---------------------------------------------------------------
